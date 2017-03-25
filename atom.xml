@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>前端开发</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://blog.wapui.com/"/>
+  <updated>2017-03-25T18:47:41.000Z</updated>
+  <id>http://blog.wapui.com/</id>
+  
+  <author>
+    <name>Rifty</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue.js轻松实现路由组件的懒加载</title>
+    <link href="http://blog.wapui.com/posts/2dc6fc6f.html"/>
+    <id>http://blog.wapui.com/posts/2dc6fc6f.html</id>
+    <published>2017-03-25T18:20:39.000Z</published>
+    <updated>2017-03-25T18:47:41.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;参考文档&quot;&gt;&lt;a href=&quot;#参考文档&quot; class=&quot;headerlink&quot; title=&quot;参考文档&quot;&gt;&lt;/a&gt;参考文档&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://router.vuejs.org/zh-cn/advanced/lazy-loading.html&quot;&gt;vue官方文档－vue-router懒加载&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://cn.vuejs.org/v2/guide/components.html#异步组件&quot;&gt;vue官方文档－异步组件&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;webpack文档－webpack代码分离&quot;&gt;webpack文档－webpack代码分离&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;路由懒加载&quot;&gt;&lt;a href=&quot;#路由懒加载&quot; class=&quot;headerlink&quot; title=&quot;路由懒加载&quot;&gt;&lt;/a&gt;路由懒加载&lt;/h3&gt;&lt;p&gt;当打包构建应用时，Javascript 包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="front-end" scheme="http://blog.wapui.com/categories/front-end/"/>
+    
+      <category term="vue" scheme="http://blog.wapui.com/categories/front-end/vue/"/>
+    
+    
+      <category term="vue" scheme="http://blog.wapui.com/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue2 dist 目录下各个文件的区别</title>
+    <link href="http://blog.wapui.com/posts/644912cd.html"/>
+    <id>http://blog.wapui.com/posts/644912cd.html</id>
+    <published>2017-03-25T18:12:48.000Z</published>
+    <updated>2017-03-25T18:48:13.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;vue2 经过 2.2 版本升级后, 文件变成了 8 个:&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;vue.common.js&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vue.esm.js&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vue.js&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vue.min.js&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vue.runtime.common.js&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vue.runtime.esm.js&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vue.runtime.js&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vue.runtime.min.js&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="front-end" scheme="http://blog.wapui.com/categories/front-end/"/>
+    
+      <category term="vue" scheme="http://blog.wapui.com/categories/front-end/vue/"/>
+    
+    
+      <category term="vue" scheme="http://blog.wapui.com/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue.js起步</title>
+    <link href="http://blog.wapui.com/posts/745f768b.html"/>
+    <id>http://blog.wapui.com/posts/745f768b.html</id>
+    <published>2017-03-25T17:46:25.000Z</published>
+    <updated>2017-03-25T18:48:22.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Vue.js 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和 Vue 生态系统支持的库开发的复杂单页应用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;vue.js@2.x 教程：&lt;a href=&quot;http://cn.vuejs.org/v2/guide/&quot;&gt;http://cn.vuejs.org/v2/guide/&lt;/a&gt;&lt;br&gt;vue-router@2.x 文档：&lt;a href=&quot;https://router.vuejs.org/zh-cn/&quot;&gt;https://router.vuejs.org/zh-cn/&lt;/a&gt;&lt;br&gt;vuex@2.x 文档：&lt;a href=&quot;https://vuex.vuejs.org/zh-cn/&quot;&gt;https://vuex.vuejs.org/zh-cn/&lt;/a&gt;&lt;br&gt;vue.js对比其他框架：&lt;a href=&quot;http://cn.vuejs.org/v2/guide/comparison.html&quot;&gt;http://cn.vuejs.org/v2/guide/comparison.html&lt;/a&gt;&lt;br&gt;webpack 2 中文：&lt;a href=&quot;https://doc.webpack-china.org/&quot;&gt;https://doc.webpack-china.org/&lt;/a&gt;&lt;br&gt;vue.js中文社区：&lt;a href=&quot;https://forum.vuejs.org/c/chinese&quot;&gt;https://forum.vuejs.org/c/chinese&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="front-end" scheme="http://blog.wapui.com/categories/front-end/"/>
+    
+      <category term="vue" scheme="http://blog.wapui.com/categories/front-end/vue/"/>
+    
+    
+      <category term="vue" scheme="http://blog.wapui.com/tags/vue/"/>
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Vue2 dist 目录下各个文件的区别 | 前端开发</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="vue2 经过 2.2 版本升级后, 文件变成了 8 个:12345678vue.common.jsvue.esm.jsvue.jsvue.min.jsvue.runtime.common.jsvue.runtime.esm.jsvue.runtime.jsvue.runtime.min.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue2 dist 目录下各个文件的区别">
+<meta property="og:url" content="http://blog.wapui.com/posts/644912cd.html">
+<meta property="og:site_name" content="前端开发">
+<meta property="og:description" content="vue2 经过 2.2 版本升级后, 文件变成了 8 个:12345678vue.common.jsvue.esm.jsvue.jsvue.min.jsvue.runtime.common.jsvue.runtime.esm.jsvue.runtime.jsvue.runtime.min.js">
+<meta property="og:updated_time" content="2017-03-25T18:48:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue2 dist 目录下各个文件的区别">
+<meta name="twitter:description" content="vue2 经过 2.2 版本升级后, 文件变成了 8 个:12345678vue.common.jsvue.esm.jsvue.jsvue.min.jsvue.runtime.common.jsvue.runtime.esm.jsvue.runtime.jsvue.runtime.min.js">
+  
+    <link rel="alternative" href="/atom.xml" title="前端开发" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">前端开发</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed">RSS</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-Vue2-dist-目录下各个文件的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/posts/644912cd.html" class="article-date">
+  <time datetime="2017-03-25T18:12:48.000Z" itemprop="datePublished">2017-03-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/front-end/">front-end</a>►<a class="article-category-link" href="/categories/front-end/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue2 dist 目录下各个文件的区别
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>vue2 经过 2.2 版本升级后, 文件变成了 8 个:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">vue.common.js</div><div class="line">vue.esm.js</div><div class="line">vue.js</div><div class="line">vue.min.js</div><div class="line">vue.runtime.common.js</div><div class="line">vue.runtime.esm.js</div><div class="line">vue.runtime.js</div><div class="line">vue.runtime.min.js</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="Explanation-of-Different-Builds"><a href="#Explanation-of-Different-Builds" class="headerlink" title="Explanation of Different Builds"></a>Explanation of Different Builds</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>UMD</th>
+<th>CommonJS</th>
+<th>ES Module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Full</strong></td>
+<td>vue.js</td>
+<td>vue.common.js</td>
+<td>vue.esm.js</td>
+</tr>
+<tr>
+<td><strong>Runtime-only</strong></td>
+<td>vue.runtime.js</td>
+<td>vue.runtime.common.js</td>
+<td>vue.runtime.esm.js</td>
+</tr>
+<tr>
+<td><strong>Full (production)</strong></td>
+<td>vue.min.js</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Runtime-only (production)</strong></td>
+<td>vue.runtime.min.js</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Development-vs-Production-Mode"><a href="#Development-vs-Production-Mode" class="headerlink" title="Development vs. Production Mode"></a>Development vs. Production Mode</h3><p>Development/production modes are hard-coded for the UMD builds: the un-minified files are for development, and the minified files are for production.</p>
+<p>CommonJS and ES Module builds are intended for bundlers, therefore we don’t provide minified versions for them. You will be responsible for minifying the final bundle yourself.</p>
+<p>CommonJS and ES Module builds also preserve raw checks for <code>process.env.NODE_ENV</code> to determine the mode they should run in. You should use appropriate bundler configurations to replace these environment variables in order to control which mode Vue will run in. Replacing <code>process.env.NODE_ENV</code> with string literals also allows minifiers like UglifyJS to completely drop the development-only code blocks, reducing final file size.</p>
+<h4 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h4><p>Use Webpack’s <a href="https://webpack.js.org/plugins/define-plugin/" target="_blank" rel="external">DefinePlugin</a>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  plugins: [</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</div><div class="line">      <span class="string">'process.env'</span>: &#123;</div><div class="line">        <span class="attr">NODE_ENV</span>: <span class="built_in">JSON</span>.stringify(<span class="string">'production'</span>)</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/posts/2dc6fc6f.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          Vue.js轻松实现路由组件的懒加载
+        
+      </div>
+    </a>
+  
+  
+    <a href="/posts/745f768b.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">Vue.js起步</div>
+    </a>
+  
+</nav>
+
+  
+</article></section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/vue/">vue</a><span class="category-list-count">3</span></li></ul></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/vue/" style="font-size: 10px;">vue</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/posts/2dc6fc6f.html">Vue.js轻松实现路由组件的懒加载</a>
+          </li>
+        
+          <li>
+            <a href="/posts/644912cd.html">Vue2 dist 目录下各个文件的区别</a>
+          </li>
+        
+          <li>
+            <a href="/posts/745f768b.html">Vue.js起步</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.laruence.com/" target="_blank">风雪之隅</a>
+          </li>
+        
+          <li>
+            <a href="https://leo108.com/" target="_blank">leo108</a>
+          </li>
+        
+          <li>
+            <a href="http://blog.newbmiao.com/" target="_blank">菜鸟Miao</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Rifty<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+window.console&&console.log("%c", "padding:50px 300px;line-height:120px;background:url('http://rifty.oschina.io/demo/images/rabbit.gif') no-repeat;");
+</script>
+</div>
+</body>
+</html>

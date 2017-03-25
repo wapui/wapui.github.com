@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Vue.js轻松实现路由组件的懒加载 | 前端开发</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="参考文档vue官方文档－vue-router懒加载vue官方文档－异步组件webpack文档－webpack代码分离
+路由懒加载当打包构建应用时，Javascript 包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue.js轻松实现路由组件的懒加载">
+<meta property="og:url" content="http://blog.wapui.com/posts/2dc6fc6f.html">
+<meta property="og:site_name" content="前端开发">
+<meta property="og:description" content="参考文档vue官方文档－vue-router懒加载vue官方文档－异步组件webpack文档－webpack代码分离
+路由懒加载当打包构建应用时，Javascript 包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了。">
+<meta property="og:updated_time" content="2017-03-25T18:47:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue.js轻松实现路由组件的懒加载">
+<meta name="twitter:description" content="参考文档vue官方文档－vue-router懒加载vue官方文档－异步组件webpack文档－webpack代码分离
+路由懒加载当打包构建应用时，Javascript 包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了。">
+  
+    <link rel="alternative" href="/atom.xml" title="前端开发" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">前端开发</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed">RSS</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-Vue-js轻松实现路由组件的懒加载" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/posts/2dc6fc6f.html" class="article-date">
+  <time datetime="2017-03-25T18:20:39.000Z" itemprop="datePublished">2017-03-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/front-end/">front-end</a>►<a class="article-category-link" href="/categories/front-end/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue.js轻松实现路由组件的懒加载
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><p><a href="https://router.vuejs.org/zh-cn/advanced/lazy-loading.html" target="_blank" rel="external">vue官方文档－vue-router懒加载</a><br><a href="http://cn.vuejs.org/v2/guide/components.html#异步组件" target="_blank" rel="external">vue官方文档－异步组件</a><br><a href="webpack文档－webpack代码分离">webpack文档－webpack代码分离</a></p>
+<h3 id="路由懒加载"><a href="#路由懒加载" class="headerlink" title="路由懒加载"></a>路由懒加载</h3><p>当打包构建应用时，Javascript 包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了。</p>
+<a id="more"></a>
+<p>结合 Vue 的 <a href="http://cn.vuejs.org/v2/guide/components.html#异步组件" target="_blank" rel="external"><code>异步组件</code></a> 和 Webpack 的 <a href="https://doc.webpack-china.org/guides/code-splitting-require/" target="_blank" rel="external"><code>code splitting feature</code></a>, 轻松实现路由组件的懒加载。</p>
+<p>在大型应用中，我们可能需要将应用拆分为多个小模块，按需从服务器下载。为了让事情更简单， Vue.js 允许将组件定义为一个工厂函数，动态地解析组件的定义。Vue.js 只在组件需要渲染时触发工厂函数，并且把结果缓存起来，用于后面的再次渲染。</p>
+<p>工厂函数接收一个 <code>resolve</code> 回调，在收到从服务器下载的组件定义时调用。也可以调用 <code>reject(reason)</code> 指示加载失败。推荐配合使用 Webpack 的代码分割功能：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Foo = <span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</div><div class="line">  <span class="comment">// require.ensure 是 Webpack 的特殊语法，用来设置 code-split point</span></div><div class="line">  <span class="comment">// （代码分块）</span></div><div class="line">  <span class="built_in">require</span>.ensure([<span class="string">'./Foo.vue'</span>], () =&gt; &#123;</div><div class="line">    resolve(<span class="built_in">require</span>(<span class="string">'./Foo.vue'</span>))</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里还有另一种代码分块的语法，使用 AMD 风格的 require，于是就更简单了：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Foo = <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'./Foo.vue'</span>], resolve)</div></pre></td></tr></table></figure></p>
+<p>还可以使用 Webpack 2 + ES2015 的语法返回一个 Promise resolve 函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Foo = <span class="function"><span class="params">()</span> =&gt;</span> System.import(<span class="string">'./Foo.vue'</span>)</div></pre></td></tr></table></figure></p>
+<p>最后，不需要改变任何路由配置，跟之前一样使用 Foo：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</div><div class="line">  <span class="attr">routes</span>: [</div><div class="line">    &#123; <span class="attr">path</span>: <span class="string">'/foo'</span>, <span class="attr">component</span>: Foo &#125;</div><div class="line">  ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="把组件按组分块"><a href="#把组件按组分块" class="headerlink" title="把组件按组分块"></a>把组件按组分块</h3><p>有时候我们想把某个路由下的所有组件都打包在同个异步 chunk 中。只需要 给 chunk 命名，提供 require.ensure 第三个参数作为 chunk 的名称:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Foo = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure([], () =&gt; r(<span class="built_in">require</span>(<span class="string">'./Foo.vue'</span>)), <span class="string">'group-foo'</span>)</div><div class="line"><span class="keyword">const</span> Bar = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure([], () =&gt; r(<span class="built_in">require</span>(<span class="string">'./Bar.vue'</span>)), <span class="string">'group-foo'</span>)</div><div class="line"><span class="keyword">const</span> Baz = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure([], () =&gt; r(<span class="built_in">require</span>(<span class="string">'./Baz.vue'</span>)), <span class="string">'group-foo'</span>)</div></pre></td></tr></table></figure></p>
+<p>Webpack 将相同 chunk 下的所有异步模块打包到一个异步块里面 —— 这也意味着我们无须明确列出 require.ensure 的依赖（传空数组就行）。</p>
+
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/posts/644912cd.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">Vue2 dist 目录下各个文件的区别</div>
+    </a>
+  
+</nav>
+
+  
+</article></section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/vue/">vue</a><span class="category-list-count">3</span></li></ul></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/vue/" style="font-size: 10px;">vue</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/posts/2dc6fc6f.html">Vue.js轻松实现路由组件的懒加载</a>
+          </li>
+        
+          <li>
+            <a href="/posts/644912cd.html">Vue2 dist 目录下各个文件的区别</a>
+          </li>
+        
+          <li>
+            <a href="/posts/745f768b.html">Vue.js起步</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.laruence.com/" target="_blank">风雪之隅</a>
+          </li>
+        
+          <li>
+            <a href="https://leo108.com/" target="_blank">leo108</a>
+          </li>
+        
+          <li>
+            <a href="http://blog.newbmiao.com/" target="_blank">菜鸟Miao</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Rifty<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+window.console&&console.log("%c", "padding:50px 300px;line-height:120px;background:url('http://rifty.oschina.io/demo/images/rabbit.gif') no-repeat;");
+</script>
+</div>
+</body>
+</html>
