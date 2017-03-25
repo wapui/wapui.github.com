@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2017/3 | 前端开发</title>
+  <title>vue filters | 前端开发</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <link rel="alternative" href="/atom.xml" title="前端开发" type="application/atom+xml">
@@ -44,98 +44,54 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/posts/67e979ce.html" class="archive-article-date">
-  <time datetime="2017-03-25T20:01:15.000Z" itemprop="datePublished">3月 26</time>
+      <section id="main"><article id="post-vue-filters" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/posts/67e979ce.html" class="article-date">
+  <time datetime="2017-03-25T20:01:15.000Z" itemprop="datePublished">2017-03-26</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/front-end/">front-end</a>►<a class="article-category-link" href="/categories/front-end/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/67e979ce.html">vue filters</a>
+    <h1 class="article-title" itemprop="name">
+      vue filters
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/posts/2dc6fc6f.html" class="archive-article-date">
-  <time datetime="2017-03-25T18:20:39.000Z" itemprop="datePublished">3月 26</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/2dc6fc6f.html">Vue.js轻松实现路由组件的懒加载</a>
-    </h1>
-  
+        <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">    &lt;div class=""&gt;</div><div class="line">        &lt;p @click="dodo"&gt;&#123;&#123;aa&#125;&#125;&lt;/p&gt;</div><div class="line">        &lt;p @click="dodo1"&gt;&#123;&#123;mess | sum&#125;&#125;&lt;/p&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line">export default &#123;</div><div class="line">    data: function() &#123;</div><div class="line">        return &#123;</div><div class="line">            aa: [1],</div><div class="line">            mess: 1</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    methods: &#123;</div><div class="line">        dodo() &#123;</div><div class="line">            this.aa.push(1);</div><div class="line">        &#125;,</div><div class="line">        dodo1() &#123;</div><div class="line">            this.mesaa ++;</div><div class="line">        &#125;,</div><div class="line">    &#125;,</div><div class="line">    filters: &#123;</div><div class="line">        sum(v) &#123;</div><div class="line">            console.log(2333);</div><div class="line">            return v + 1;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>当我点击<code>dodo</code>事件的时候，控制台输出了<code>2333</code><br>开始的时候以为这是vue的一个bug，其实不然：</p>
+<p>Filters are always called whenever the render function is called, and render function calls can be triggered by any state change.<br>If you care about performance, use computed properties instead of <code>filters</code> - they are called only when the value they depend on changes (you can consider this as automatic caching).</p>
+<p>查看：<a href="https://github.com/vuejs/vue/issues/5109" target="_blank" rel="external">https://github.com/vuejs/vue/issues/5109</a></p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/posts/644912cd.html" class="archive-article-date">
-  <time datetime="2017-03-25T18:12:48.000Z" itemprop="datePublished">3月 26</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/644912cd.html">Vue2 dist 目录下各个文件的区别</a>
-    </h1>
-  
-
-    </header>
+    </div>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/posts/745f768b.html" class="archive-article-date">
-  <time datetime="2017-03-25T17:46:25.000Z" itemprop="datePublished">3月 26</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/745f768b.html">Vue.js起步</a>
-    </h1>
   
+    <a href="/posts/2dc6fc6f.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">Vue.js轻松实现路由组件的懒加载</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-</section>
+</article></section>
       
       <aside id="sidebar">
   

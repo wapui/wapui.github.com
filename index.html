@@ -46,6 +46,43 @@
     <div class="outer">
       <section id="main">
   
+    <article id="post-vue-filters" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/posts/67e979ce.html" class="article-date">
+  <time datetime="2017-03-25T20:01:15.000Z" itemprop="datePublished">2017-03-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/front-end/">front-end</a>►<a class="article-category-link" href="/categories/front-end/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/67e979ce.html">vue filters</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">    &lt;div class=""&gt;</div><div class="line">        &lt;p @click="dodo"&gt;&#123;&#123;aa&#125;&#125;&lt;/p&gt;</div><div class="line">        &lt;p @click="dodo1"&gt;&#123;&#123;mess | sum&#125;&#125;&lt;/p&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line">export default &#123;</div><div class="line">    data: function() &#123;</div><div class="line">        return &#123;</div><div class="line">            aa: [1],</div><div class="line">            mess: 1</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    methods: &#123;</div><div class="line">        dodo() &#123;</div><div class="line">            this.aa.push(1);</div><div class="line">        &#125;,</div><div class="line">        dodo1() &#123;</div><div class="line">            this.mesaa ++;</div><div class="line">        &#125;,</div><div class="line">    &#125;,</div><div class="line">    filters: &#123;</div><div class="line">        sum(v) &#123;</div><div class="line">            console.log(2333);</div><div class="line">            return v + 1;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>当我点击<code>dodo</code>事件的时候，控制台输出了<code>2333</code><br>开始的时候以为这是vue的一个bug，其实不然：</p>
+<p>Filters are always called whenever the render function is called, and render function calls can be triggered by any state change.<br>If you care about performance, use computed properties instead of <code>filters</code> - they are called only when the value they depend on changes (you can consider this as automatic caching).</p>
+<p>查看：<a href="https://github.com/vuejs/vue/issues/5109" target="_blank" rel="external">https://github.com/vuejs/vue/issues/5109</a></p>
+
+      
+    </div>
+  </div>
+  
+</article>
+  
     <article id="post-Vue-js轻松实现路由组件的懒加载" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/posts/2dc6fc6f.html" class="article-date">
@@ -173,7 +210,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/vue/">vue</a><span class="category-list-count">3</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/vue/">vue</a><span class="category-list-count">4</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -191,7 +228,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -201,6 +238,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/posts/67e979ce.html">vue filters</a>
+          </li>
         
           <li>
             <a href="/posts/2dc6fc6f.html">Vue.js轻松实现路由组件的懒加载</a>
